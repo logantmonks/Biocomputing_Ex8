@@ -5,7 +5,7 @@
 setwd("/Users/hyesooclarejeon/") # set working directory
 # define function for alternative head
 head <- function(filename, numLines) {
-  parsed <- read.table(file="iris.csv", sep="\n", header=TRUE, stringsAsFactors=TRUE) # store file data by new line to parsed
+  parsed <- read.table(file=filename, sep="\n", header=TRUE, stringsAsFactors=TRUE) # store file data by new line to parsed
   print(parsed[,numLines])
 }
 head("iris.csv", 5)
