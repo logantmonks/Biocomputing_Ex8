@@ -1,21 +1,29 @@
 # hjeon
-
 # Biocomputing Exercise 08
 # Question 1
 setwd("/Users/hyesooclarejeon/") # set working directory
 # define function for alternative head
-head <- function(filename, numLines) {
-  parsed <- read.table(file=filename, sep="\n", header=TRUE, stringsAsFactors=TRUE) # store file data by new line to parsed
-  print(parsed[,numLines])
+alt_head <- function(fileName, numLines) {
+  parsed <- read.csv(file=fileName, nrows=numLines, header=FALSE) # store file data by new line to parsed
+  parsed
 }
-head("iris.csv", 5)
+
+alt_head("iris.csv", 5)
 
 # Question 2
-firstList <- seq(from=100,to=1000,by=100)
-secondList <- cbind(c("Notre Dame", 44), c("UNLV", 21))
-thirdList <- c(999)
-fourthList <- matrix(1:50,nrow=10,ncol=5)
-fifthList <- c("U", "N", "D")
-newList=list(firstList, secondList, thirdList, fourthList, fifthList)
-newList
+iris_data <- read.csv(file="iris.csv", header=TRUE) # store file data by new line to iris_data
+iris_data_truncated <- read.csv(file="iris.csv", skip=149, header=FALSE) # store file data by new line to iris_data_truncated with last 2 rows
+iris_data_truncated[4:5] # last 2 columns of iris_data printing to terminal
 
+unique(unlist(iris_data[5:5])) # get unique species name and print to console
+length(unique(unlist(iris_data[5:5]))) # count unique species
+
+subset(iris_data, Sepal.Width > 3.5) # get rows with Sepal.Width > 3.5
+
+setosa_rows <- subset(iris_data, Species=="setosa") # store setosa rows filtered through subset
+write.table(x=setosa_rows, file="setosa.csv", sep=",") # write this subset to setosa.csv with comma delimiter
+
+petal_lengths <- unlist(iris_data["Petal.Length"])
+mean(petal_lengths)
+min(petal_lengths)
+max(petal_lengths)
