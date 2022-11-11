@@ -1,4 +1,5 @@
 # hjeon
+
 # Biocomputing Exercise 08
 # Question 1
 setwd("/Users/hyesooclarejeon/") # set working directory
