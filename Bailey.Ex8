@@ -1,0 +1,33 @@
+# Exercise 08 - Jaden Bailey
+# 10 November 2022
+
+#Problem 1
+
+#replication of "head" function
+wages <- read.csv(wages.csv)
+lines=1:5
+wages[lines,]
+
+#problem 2
+
+#print last 2 rows+2columns 
+iris= read.csv("~/biocomputing/Biocomputing_Ex8/iris.csv")
+tail(iris, n=2)[-3:-1]
+
+#get number of obs in data set
+sum(iris$Species == "setosa")
+sum(iris$Species == "versicolor")
+sum(iris$Species == "virginica")
+
+#rows w/sepal.width>3.5
+iris[iris$Sepal.width>3.5,]
+
+#data for setosa into comma-delimited files
+setosa <- iris[iris$species == "setosa",]
+write.csv(setosa, file = "setosa.csv"
+
+#mean, min, max of Petal.Length for virginica
+virginica <- iris[iris$species == "virginica",]
+mean(virginica$Petal.Length)
+min(virginica$Petal.Length)
+max(virginica$Petal.Length)
