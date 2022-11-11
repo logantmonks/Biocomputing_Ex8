@@ -24,8 +24,12 @@ a<-df[c(2:50),]
 print(a)
 write.csv(a,"C:\\Users\\natal\\Desktop\\shell-lesson-data\\shell-lesson-data\\exercise-data\\bioComputingEx8\\Biocomputing_Ex8\\setosa.csv")
 read.csv("setosa.csv")
-#Find mean, max, min of Petal.Length virinica
-min_Petal.Length<-min(data1$Petal.Length)
-max_Petal.Length<-max(data1$Petal.Length)
-mean_Petal.Length<-mean(data1$Petal.Length)
+#Find mean, max, min of Petal.Length virginica
+virginica<-data1[data1$Species=="virginica",]
+min_Petal.Length<-min(virginica$Petal.Length)
+max_Petal.Length<-max(virginica$Petal.Length)
+mean_Petal.Length<-mean(virginica$Petal.Length)
+print(min_Petal.Length)
+print(max_Petal.Length)
+print(mean_Petal.Length)
 
